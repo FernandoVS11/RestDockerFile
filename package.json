@@ -1,0 +1,13 @@
+{
+    "name": "sicei",
+    "version": "1.0.0",
+    "description": "API REST para alumnos y profesores",
+    "main": "src/index.js",
+    "dependencies": {
+      "express": "^4.18.2"
+    },
+    "scripts": {
+      "start": "node src/index.js"
+    }
+  }
+  
