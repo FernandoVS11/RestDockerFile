@@ -1,13 +1,19 @@
-FROM node:latest
+FROM node:18-alpine AS builder
 
 WORKDIR /app
 
 COPY package.json package-lock.json ./
 
-RUN npm install
+RUN npm ci --omit=dev
 
 COPY . .
 
-EXPOSE 3000
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY --from=builder /app /app
+
+EXPOSE 80
 
 CMD ["npm", "start"]
