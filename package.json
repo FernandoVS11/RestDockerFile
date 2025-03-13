@@ -2,7 +2,7 @@
     "name": "sicei",
     "version": "1.0.0",
     "description": "API REST para alumnos y profesores",
-    "main": "src/index.js",
+    "main": "index.js",
     "dependencies": {
         "express": "^4.21.2"
     },
