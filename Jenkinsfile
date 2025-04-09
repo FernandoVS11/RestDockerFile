@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = "sicei"  
+        CONTAINER_NAME = "sicei-container"
         IMAGE_TAG = "${env.BUILD_ID}"  
     }
 
@@ -17,9 +18,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo "🚀 Desplegando el contenedor..."
-                sh "docker stop sicei-container || true"
-                sh "docker rm sicei-container || true"
-                sh "docker run -p 80:80 --name sicei-container -d ${IMAGE_NAME}:${IMAGE_TAG}"
+                sh "docker stop ${CONTAINER_NAME} || true"
+                sh "docker rm ${CONTAINER_NAME} || true"
+                sh "docker run -p 80:80 --name ${CONTAINER_NAME} -d ${IMAGE_NAME}:${IMAGE_TAG}"
             }
         }
     }
